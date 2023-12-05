@@ -10,7 +10,8 @@ import requests.exceptions
 import json
 import datetime as dt
 from pytz import timezone
-from back_end.config import dbconfig
+# from back_end.config import dbconfig
+from ...config import dbconfig
 
 
 private_key = dbconfig.private_key
@@ -30,7 +31,7 @@ def get_location(location_name):
     geo_request = (f"http://api.openweathermap.org/geo/1.0/"
                    f"direct?q={location_name}&limit=5&appid={private_key}")
     try:
-    # response = requests.get(request)
+
         response = requests.get(geo_request).json()  #recommend way
         # print(response)
         # if len(response) > 0 and response["cod"] != "400" :

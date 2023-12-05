@@ -1,5 +1,6 @@
-from back_end.config import dbconfig
-
+# from back_end.config import dbconfig
+from ...config import dbconfig
+# from 
 connection = dbconfig.connection
 
 def get_questions():
@@ -11,8 +12,17 @@ def get_questions():
     result = cursor.fetchall()
     return result
 
+# converting data to Ojbect
+
+# object = {
+#     "id": data[0]
+#      question_name:data[1]
+#     location:[2]
+# }
+
 
 if __name__ == "__main__":
     questions = get_questions()
+    
     print(questions)
 

@@ -1,9 +1,10 @@
-from back_end.config import dbconfig
+# from back_end.config import dbconfig
+from ...config import dbconfig
+
 
 connection = dbconfig.connection
-
-def get_all_options():
-    sql = "select * from quiz_question_option"
+def get_players():
+    sql = "select * from player"
     # moreSql = f"{sql} WHERE country.id = city.country AND city.id = player.location"
     # finalSql = f"{sql} AND player.id = {playerId}"
     cursor = connection.cursor()
@@ -13,5 +14,5 @@ def get_all_options():
 
 
 if __name__ == "__main__":
-    options = get_all_options()
-    print(options)
+    players = get_players()
+    print(players)

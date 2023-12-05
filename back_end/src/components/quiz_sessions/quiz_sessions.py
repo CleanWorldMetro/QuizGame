@@ -1,6 +1,10 @@
-from back_end.config import dbconfig
+# from back_end.config import dbconfig
+from ...config import dbconfig
 
 connection = dbconfig.connection
+
+# class quiz
+# class option
 
 def get_all_quiz_sessions():
     sql = "select * from quiz_session"

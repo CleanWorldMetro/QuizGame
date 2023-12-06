@@ -1,5 +1,5 @@
-
-# import sys
+import sys
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
 
 from config import dbconfig
 # from ...config import dbconfig
@@ -17,6 +17,6 @@ def get_countries():
 
 
 if __name__ == "__main__":
-    print(sys.path)
-    # countries = get_countries()
-    # print(countries)
+    # print(sys.path)
+    countries = get_countries()
+    print(countries)

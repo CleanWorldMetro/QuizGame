@@ -19,4 +19,7 @@ if __name__ == "__main__":
     # cities = get_cities()
 
 
-    get_random_city()
+    # get_random_city()
+
+class Metho();
+asdjkahsdjkhasd

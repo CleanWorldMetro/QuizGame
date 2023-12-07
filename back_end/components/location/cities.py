@@ -1,6 +1,6 @@
-from back_end.config import dbconfig
+# from back_end.config import dbconfig
 
-connection = dbconfig.connection
+# connection = dbconfig.connection
 
 def get_cities():
     sql = "select * from city"
@@ -14,6 +14,9 @@ def get_cities():
 def get_random_city():
     print("Hello")
 
-if __name__ == "__main__":
-    cities = get_cities()
 
+if __name__ == "__main__":
+    # cities = get_cities()
+
+
+    get_random_city()

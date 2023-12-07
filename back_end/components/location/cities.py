@@ -20,6 +20,3 @@ if __name__ == "__main__":
 
 
     # get_random_city()
-
-class Metho();
-asdjkahsdjkhasd

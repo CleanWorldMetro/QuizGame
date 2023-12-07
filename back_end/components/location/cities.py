@@ -11,7 +11,9 @@ def get_cities():
     result = cursor.fetchall()
     return result
 
+def get_random_city():
+    print("Hello")
 
 if __name__ == "__main__":
     cities = get_cities()
-    print(cities)
+

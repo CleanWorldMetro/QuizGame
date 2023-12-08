@@ -18,3 +18,7 @@ connection = mysql.connector.connect(
     autocommit = True
 )
 `
+
+To run the server:
+    - From our project root folder `Quiz_Project`, type this in terminal: `cd .\back_end\src\`
+    - type: `flask run --debug`

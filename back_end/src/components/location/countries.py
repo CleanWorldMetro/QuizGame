@@ -1,9 +1,13 @@
-from back_end.config import dbconfig
+import sys
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+
+from config import dbconfig
+# from ...config import dbconfig
 
 connection = dbconfig.connection
 
-def get_all_options():
-    sql = "select * from quiz_question_option"
+def get_countries():
+    sql = "select * from country"
     # moreSql = f"{sql} WHERE country.id = city.country AND city.id = player.location"
     # finalSql = f"{sql} AND player.id = {playerId}"
     cursor = connection.cursor()
@@ -13,5 +17,6 @@ def get_all_options():
 
 
 if __name__ == "__main__":
-    options = get_all_options()
-    print(options)
+    # print(sys.path)
+    countries = get_countries()
+    print(countries)

@@ -1,6 +1,11 @@
-from back_end.config import dbconfig
+import sys
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+from config import dbconfig
 
 connection = dbconfig.connection
+
+# class quiz
+# class option
 
 def get_all_quiz_sessions():
     sql = "select * from quiz_session"

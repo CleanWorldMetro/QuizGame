@@ -1,4 +1,6 @@
-from back_end.config import dbconfig
+import sys
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+from config import dbconfig
 
 
 connection = dbconfig.connection

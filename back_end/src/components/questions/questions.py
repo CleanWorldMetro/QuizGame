@@ -13,6 +13,19 @@ def get_questions():
     result = cursor.fetchall()
     return result
 
+def get_random_question_by_location_id(location_id):
+    sql = "select * from quiz_question"
+    more_sql = f"{sql} WHERE location_id = {location_id}"
+    final_sql = f"{more_sql} ORDER BY RAND() LIMIT 1"
+    # print(final_sql)
+
+    cursor = connection.cursor()
+    cursor.execute(final_sql)
+    result = cursor.fetchall()
+    return result
+
+
+    
 # converting data to Ojbect
 
 # object = {
@@ -24,6 +37,5 @@ def get_questions():
 
 if __name__ == "__main__":
     questions = get_questions()
-    
-    print(questions)
+    print(get_random_question_by_location_id(1))
 

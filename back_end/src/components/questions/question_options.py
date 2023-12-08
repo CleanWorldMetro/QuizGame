@@ -12,7 +12,27 @@ def get_all_options():
     result = cursor.fetchall()
     return result
 
+def get_options_by_question_id(question_id):
+    sql = f"SELECT * from quiz_question_option"
+    sql_result = f"{sql} WHERE quiz_question_id = '{question_id}'"
+    # print(sql_result)
+    cursor = connection.cursor()
+    cursor.execute(sql_result)
+    result = cursor.fetchall()
+    return result
+
+def get_option_by_option_id(option_id):
+    sql = f"SELECT * from quiz_question_option"
+    sql_result = f"{sql} WHERE id = '{option_id}'"
+    # print(sql_result)
+    cursor = connection.cursor()
+    cursor.execute(sql_result)
+    result = cursor.fetchall()
+    return result
+
 
 if __name__ == "__main__":
     options = get_all_options()
-    print(options)
+    options_by_question = get_options_by_question_id(1)
+    option1 = get_option_by_option_id(20)
+    print(option1)

@@ -20,10 +20,31 @@ def get_cities():
     result = cursor.fetchall()
     return result
 
+def get_city_by_id(city_id):
+    sql = f"SELECT * from city"
+    sql_result = f"{sql} WHERE id = {city_id}"
+    # print(sql_result)
+    cursor = connection.cursor()
+    cursor.execute(sql_result)
+    result = cursor.fetchall()
+    return result
+
+def get_city_by_name(city_name):
+    sql = f"SELECT * from city"
+    sql_result = f"{sql} WHERE name = '{city_name}'"
+    # print(sql_result)
+    cursor = connection.cursor()
+    cursor.execute(sql_result)
+    result = cursor.fetchall()
+    return result
+
 
 if __name__ == "__main__":
     cities = get_cities()
-    print(cities)
+    city1 = get_city_by_id(1)
+    city2 = get_city_by_name("helsinki")
+    print(city2)
+    # print(cities)
 
 
 

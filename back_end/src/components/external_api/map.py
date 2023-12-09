@@ -5,13 +5,16 @@
 # the service to receive the API key required for making API requests. Furthermore,
 # find out how you can convert Kelvin degrees into Celsius.
 
+import sys
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+
 # https: // openweathermap.org / api
 import requests.exceptions
 import json
 import datetime as dt
 from pytz import timezone
 # from back_end.config import dbconfig
-from ...config import dbconfig
+from src.config import dbconfig
 
 
 private_key = dbconfig.private_key

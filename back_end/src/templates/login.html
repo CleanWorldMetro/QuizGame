@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+    <main class="total_background">
+
+        <form action="#" class="form" method="post">
+            <h1 class="welcome">Welcome to Clean World !!!</h1>
+            <div class="username" >
+                <label class="form_label" for="name">Username :</label>
+                <input class="form_input" type="text" id="name" name="username" required autofocus autocomplete="off" placeholder="Type username">
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <div class="background_img">
+            <video class="video" autoplay loop>
+                <source src="https://cdn.pixabay.com/vimeo/362142266/trai-at-27168.mp4?width=640&hash=9550c8b88b71a82e03f63539efc3be0a35d0b211"
+                        type="video/mp4">
+
+            </video>
+
+        </div>
+    </main>
+{% endblock %}

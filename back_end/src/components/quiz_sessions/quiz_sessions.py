@@ -1,5 +1,5 @@
 import sys
-sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend')
 from src.config import dbconfig
 
 connection = dbconfig.connection
@@ -47,11 +47,11 @@ if __name__ == "__main__":
     # print(all_closed_quiz_sessions)
     print(all_openned_quiz_sessions)
 
-    class Quiz_session:
-        def __init__(self,player_id,questions_answered,correct_count,chances,is_open):
-            self.play_id = player_id
-            self.questions_answered = questions_answered
-            self.correct_count = correct_count
-            self.chances = chances
-            self.is_open = is_open
+    # class Quiz_session:
+    #     def __init__(self,player_id,questions_answered,correct_count,chances,is_open):
+    #         self.play_id = player_id
+    #         self.questions_answered = questions_answered
+    #         self.correct_count = correct_count
+    #         self.chances = chances
+    #         self.is_open = is_open
         # quiz_session = Quiz_session(player_id,questions_answered,correct_count,chances,is_open)

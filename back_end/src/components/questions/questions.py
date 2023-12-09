@@ -37,5 +37,66 @@ def get_random_question_by_location_id(location_id):
 
 if __name__ == "__main__":
     questions = get_questions()
-    print(get_random_question_by_location_id(1))
+    
+    # class session(player_id,questions_answered,correct_count,chances,is_open)
+    
+    
+    # class current_quiz(session_id,player_id,question_id,answer_option_id,is_correct):
+    
+    # question_data = (get_random_question_by_location_id(1))
+    # options_by_question_data
+    
+    # # [(1, 'What are Finnish households encouraged to recycle?', 1)]
+    # question1 = Question(question_data[0],question_data[1],question_data[2])
+    # option1 = Option
+    # option2 = Option
+    # option3 = Option
+    # option4 = Option
+    
+    
+    # question1.add_options(option1,option2,option3,top4)
+    # current_quiz.add(question1)
+    
+    # question1.id, question1.name,question1.location_id
+    
+# When a user he type a username
+# our database will check if that username exists in our database or not
+## yes: we will let the user continue his game >> fetch the session for this user
+## no: we will create a new session for this user
+
+# /login
+# /home ( display map)
+#/location/location_name
+## get questions and option relating to this location_name
+##
+##display them on browser
+
+
+
+#user answer questiontion >> uswer answer option_id
+# logic to handle  user answer
+# option_id
+# question_id
+# session_id
+# player_id
+# is_corect
+
+# current_quiz_session =Current_quiz_session(session_id,player_id,question_id,answer_option_id,is_correct)
+
+# insert .... table  value (option_id,session_id,question_id,player_id,is_correct)
+
+#name = input("type Name)")
+
+# user1 = User(name)
+#user1.name = new_name
+# quiz_session1 = updatedSession
+# update_to_database(updatedSession)
+# return to home page
+
+
+# quiz_session1.how_question
+
+# user
+# session = get_session_by_user
+
 

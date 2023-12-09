@@ -1,9 +1,13 @@
-from back_end.config import dbconfig
+import sys
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend')
 
+from src.config import dbconfig
+# from ...config import dbconfig
 
 connection = dbconfig.connection
-def get_players():
-    sql = "select * from player"
+
+def get_countries():
+    sql = "select * from country"
     # moreSql = f"{sql} WHERE country.id = city.country AND city.id = player.location"
     # finalSql = f"{sql} AND player.id = {playerId}"
     cursor = connection.cursor()
@@ -13,5 +17,6 @@ def get_players():
 
 
 if __name__ == "__main__":
-    players = get_players()
-    print(players)
+    # print(sys.path)
+    countries = get_countries()
+    print(countries)

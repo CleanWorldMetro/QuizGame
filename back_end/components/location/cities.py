@@ -11,15 +11,12 @@ def get_cities():
     result = cursor.fetchall()
     return result
 
+
+
 def get_random_city():
     print("Hello")
-
+    return
 
 if __name__ == "__main__":
     # cities = get_cities()
-
-
-    # get_random_city()
-
-class Metho();
-asdjkahsdjkhasd
+    get_random_city()

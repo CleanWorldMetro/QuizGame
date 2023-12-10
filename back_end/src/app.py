@@ -44,11 +44,12 @@ def login():
 
 @app.route("/worldmap", methods = ["POST","GET"])
 def worldmap():
+  quiz_session = session["quiz_session"]
   if request.method == "GET":
     country_list = countries.get_countries()
     location_list = cities.get_cities()
     # print(country_list.size)
-    return render_template("worldmap.html", country_list = country_list, location_list = location_list)
+    return render_template("worldmap.html", country_list = country_list, location_list = location_list, quiz_session=quiz_session)
   else:
     location_id = request.form.get("location_id")
     location_in_request = cities.get_city_by_id(location_id)
@@ -57,13 +58,14 @@ def worldmap():
 
 @app.route("/location/<city_name>", methods = ["POST","GET"])
 def location(city_name):
+  quiz_session = session["quiz_session"]
   if request.method == "GET":
     city_in_request = cities.get_city_by_name(city_name)
     question = questions.get_random_question_by_location_id(city_in_request[0][0])
     options_of_question = question_options.get_options_by_question_id(question[0][0])
-    print(options_of_question)
+    # print(options_of_question)
     
-    return render_template("question.html",city_in_request=city_in_request,question=question,options_of_question=options_of_question)
+    return render_template("question.html",city_in_request=city_in_request,question=question,options_of_question=options_of_question,quiz_session = quiz_session)
   else:
     answer_question_option_id = request.form.get("option_id")
     quiz_session_by_player = session['quiz_session']
@@ -78,8 +80,7 @@ def location(city_name):
     # is_correct = answer_option[0][3]
     #log the answer from user as new current session
     #up session belong to this user
-    
-    return "hi"
+    return redirect(url_for("worldmap"))
 
 @app.route("/logout")
 def logout():

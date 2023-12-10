@@ -1,0 +1,37 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-image: url("photos/map3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  width: 100%; /* Full width header */
+  text-align: center;
+}
+
+/* Your other styles for header content, navigation, etc. */
+
+.question-container {
+  background-color: #fff; /* Example background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center text within question container */
+  margin-top: 20px; /* Adjust margin as needed */
+  max-width: 600px; /* Set a maximum width for the question container */
+}

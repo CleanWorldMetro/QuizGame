@@ -43,8 +43,9 @@ def get_open_quiz_session_by_player_id(player_id):
     cursor = connection.cursor()
     cursor.execute(final_sql)
     result = cursor.fetchall()
-    
     return result
+
+
 
 def insert_new_quiz_session(player_id):
     tables ="player_id,questions_answered,correct_counts,chances,is_open"

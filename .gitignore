@@ -1,3 +1,4 @@
 dbconfig.py
 .idea/
 __pycache__*
+flask_session/

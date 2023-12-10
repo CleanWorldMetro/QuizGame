@@ -1,12 +1,9 @@
 import sys
-<<<<<<< HEAD
 sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
-from src.config import dbconfig
-=======
-sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\QUIZ_PROJECT\\back_end')
-from src.config import dbconfig
+# from src.config import dbconfig
+# sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\QUIZ_PROJECT\\back_end')
+# from src.config import dbconfig
 
->>>>>>> 1e37f65f9741803e4d7070fd83b66142cc19d8c8
 connection = dbconfig.connection
 
 def get_all_options():

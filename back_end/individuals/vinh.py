@@ -28,7 +28,7 @@
 #     main()
 import sys
 sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
-from src.config import src.dbconfig
+from src.config import dbconfig
 connection = dbconfig.connection
 def fetch_user(user):
     sql="select player.name from player"

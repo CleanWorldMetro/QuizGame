@@ -3,6 +3,7 @@ from src.components.location import cities,countries
 from src.components.questions import questions,question_options
 from src.components.players import players
 from src.components.game import game
+from src.components.quiz_sessions import quiz_sessions, current_quiz_sessions
 
 from flask_session import Session
 
@@ -12,6 +13,7 @@ app = Flask( __name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
 
 @app.route("/index")
 @app.route("/home")
@@ -23,6 +25,10 @@ def index():
   if not quiz_session:
     return redirect(url_for("login"))
   else:
+    correct_counts = quiz_session[3]
+    chances = quiz_session[4]
+    if correct_counts >= 10 or chances <= 0:
+      return redirect(url_for("finish"))
     return render_template("index.html", quiz_session = quiz_session)
   
 @app.route("/login", methods = ["POST","GET"])
@@ -48,6 +54,12 @@ def worldmap():
   if request.method == "GET":
     country_list = countries.get_countries()
     location_list = cities.get_cities()
+    
+    correct_points = session["quiz_session"][3]
+    chances = session["quiz_session"][4]
+    #when victory or game_over
+    if correct_points == 10 or chances == 0:
+      return redirect(url_for("finish"))
     # print(country_list.size)
     return render_template("worldmap.html", country_list = country_list, location_list = location_list, quiz_session=quiz_session)
   else:
@@ -69,11 +81,14 @@ def location(city_name):
   else:
     answer_question_option_id = request.form.get("option_id")
     quiz_session_by_player = session['quiz_session']
-    print(answer_question_option_id) # 12
-    print(f"current quiz session: {quiz_session_by_player}") # (3, 3, 0, 0, 3, 1)
+    # print(answer_question_option_id) # 12
+    # print(f"current quiz session: {quiz_session_by_player}") # (3, 3, 0, 0, 3, 1)
     updated_quiz_session = game.save_option_by_option_id(answer_question_option_id,quiz_session_by_player)[0]
-    print(updated_quiz_session)
+
+    #update quiz_session
     session["quiz_session"] = updated_quiz_session
+    
+
     # print(updated_quiz_session)
     # answer_option = question_options.get_option_by_option_id(answer_question_option_id)
     # question_id = answer_option[0][1]
@@ -81,6 +96,27 @@ def location(city_name):
     #log the answer from user as new current session
     #up session belong to this user
     return redirect(url_for("worldmap"))
+  
+@app.route("/finish", methods = ["POST","GET"])
+def finish():
+  quiz_session = session['quiz_session']
+  print(quiz_session)
+  if request.method == "GET":
+    correct_counts = quiz_session[3]
+    chances = quiz_session[4]
+    return  render_template("finish.html",quiz_session = quiz_session, correct_counts = correct_counts, chances = chances )
+  else:
+    quiz_session_id = quiz_session[0]
+    player_id =  quiz_session[1]
+    print(f'quiz_session_id: {quiz_session_id}')
+    print(f'player id: {player_id}')
+    quiz_sessions.update_quiz_session_when_finish(quiz_session_id)
+    quiz_sessions.insert_new_quiz_session(player_id)
+    new_quiz_session_by_same_player_id = quiz_sessions.get_open_quiz_session_by_player_id(player_id)
+    # print(f"this is a new quiz session: {new_quiz_session_by_same_player_id}")
+    session['quiz_session'] = new_quiz_session_by_same_player_id[0]
+    return redirect(url_for("worldmap"))
+    
 
 @app.route("/logout")
 def logout():

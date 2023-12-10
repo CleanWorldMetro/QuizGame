@@ -43,10 +43,12 @@ nav ul {
   list-style: none;
   display: flex;
   align-items: center;
+
 }
 
 nav ul li {
   margin-right: 20px; /* Adjust margin as needed */
+  text-decoration: none;
 }
 
 /* Style for the logout button */
@@ -58,6 +60,11 @@ nav ul li {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+}
+
+.stats-placeholder {
+  text-align: center;
+  padding: 1rem;
 }
 
 .instructions {

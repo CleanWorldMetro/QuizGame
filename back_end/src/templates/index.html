@@ -16,7 +16,7 @@
     <p id="log-out"><a href="{{ url_for("logout") }}">Log Out</a></p>
     <p id="worldmap"><a href="{{ url_for("worldmap") }}">To World Map</a></p>
     
-    {% block lists %}
+    {% block container %}
     {% endblock %}
   {% else %}
     <p>You are not log in. <a href="{{ url_for("login") }}">Log In</a></p>

@@ -9,7 +9,7 @@ connection = dbconfig.connection
 def convert_name(name):
     
     new_name = name.lower()
-    result_name = new_name.trim()
+    result_name = new_name.strip()
     return result_name
 
 
@@ -29,21 +29,22 @@ def get_players():
     result = cursor.fetchall()
     return result
 
-def insert_new_player(username):
+def insert_new_player(name):
     
-    converted_name = convert_name(username)
+    converted_name = convert_name(name)
     sql = "INSERT INTO player (name)"
     final_sql=f"{sql} VALUES ('{converted_name}')"
     cursor = connection.cursor()
     cursor.execute(final_sql)
-    print("Insert successfully")
+    print("Insert new player successfully")
     return
 
 
 def get_player_by_name(name):
     
+    converted_name = convert_name(name)
     sql = "SELECT * from player"
-    final_sql = sql + f" WHERE name = '{name}'"
+    final_sql = sql + f" WHERE name = '{converted_name}'"
     cursor = connection.cursor()
     cursor.execute(final_sql)
     result = cursor.fetchall()

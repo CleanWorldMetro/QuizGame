@@ -1,7 +1,8 @@
-from flask import Flask, redirect, render_template, request, url_for, session
+from flask import Flask, redirect, render_template, request, url_for, session, flash
 from src.components.location import cities,countries
 from src.components.questions import questions,question_options
 from src.components.players import players
+from src.components.game import game
 
 from flask_session import Session
 
@@ -32,20 +33,16 @@ def login():
   
   if request.method == "POST":
     username = request.form.get("username")
-    username_data = players.get_player_by_name(username)
-    if not players.is_name_exist(username_data):
+    quiz_session = game.get_quiz_session_by_player_name(username)
+    session["quiz_session"] = quiz_session[0]
+    flash('Welcome to the Quiz World')
+    return redirect(url_for("index"))
     
-    #set quiz_session to session  
-    #return quiz_session
-      
-      return redirect(url_for("index"))
-    
-  
   return render_template("login.html")
     
     
 
-@app.route("/worldmap")
+@app.route("/worldmap", methods = ["POST","GET"])
 def worldmap():
   if request.method == "GET":
     country_list = countries.get_countries()

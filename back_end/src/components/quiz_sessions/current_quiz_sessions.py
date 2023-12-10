@@ -23,6 +23,7 @@ def get_all_current_quiz_sessions_by_player(player_id):
     return result
 
 
+
 if __name__ == "__main__":
     # quiz_sessions = get_all_quiz_sessions()
     # all_closed_quiz_sessions = get_all_closed_quiz_sessions()

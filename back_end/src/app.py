@@ -66,9 +66,16 @@ def location(city_name):
     return render_template("question.html",city_in_request=city_in_request,question=question,options_of_question=options_of_question)
   else:
     answer_question_option_id = request.form.get("option_id")
-    answer_option = question_options.get_option_by_option_id(answer_question_option_id)
-    question_id = answer_option[0][1]
-    is_correct = answer_option[0][3]
+    quiz_session_by_player = session['quiz_session']
+    print(answer_question_option_id) # 12
+    print(f"current quiz session: {quiz_session_by_player}") # (3, 3, 0, 0, 3, 1)
+    updated_quiz_session = game.save_option_by_option_id(answer_question_option_id,quiz_session_by_player)[0]
+    print(updated_quiz_session)
+    session["quiz_session"] = updated_quiz_session
+    # print(updated_quiz_session)
+    # answer_option = question_options.get_option_by_option_id(answer_question_option_id)
+    # question_id = answer_option[0][1]
+    # is_correct = answer_option[0][3]
     #log the answer from user as new current session
     #up session belong to this user
     

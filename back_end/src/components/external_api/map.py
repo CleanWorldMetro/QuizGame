@@ -6,7 +6,8 @@
 # find out how you can convert Kelvin degrees into Celsius.
 
 import sys
-sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\QUIZ_PROJECT\\back_end')
+from src.config import dbconfig
 
 # https: // openweathermap.org / api
 import requests.exceptions

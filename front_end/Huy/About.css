@@ -17,13 +17,13 @@ body {
     margin: 0;
     justify-content: space-evenly;
     position: relative;
-    top: 12px;
+    /*top: 12px;*/
     list-style-type: none;
 
 
 }
 .list_option a {
-    font-size: 25px;
+    font-size: 52px;
     color: black;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
     font-weight: bold;

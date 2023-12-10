@@ -76,7 +76,7 @@
     align-items: center;
     /*text-align: center;*/
     list-style-type: none;
-    font-size: 25px;
+    font-size: 52px;
     box-sizing: content-box;
 
 }
@@ -165,7 +165,8 @@
 /*}*/
 
 .login-button {
-    padding: 10px 20px;
+    display: inline-block;
+    padding: 15px 25px;
     font-size: 20px;
     cursor: pointer;
     background-color: #4CAF50; /* Màu nền */
@@ -175,6 +176,8 @@
     position: relative;
     left: 46%;
     bottom: 65px;
+
+
 }
 
 .login-button:hover {

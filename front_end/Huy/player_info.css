@@ -18,12 +18,12 @@ body,html {
     position: relative;
     list-style: none;
     font-weight: bold;
-    top: 12px;
+
 }
 
 .list_option1 a {
     color: black;
-    font-size: 25px;
+    font-size: 52px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
@@ -45,7 +45,7 @@ body,html {
 .content {
     width: 100%;
     position: absolute;
-    top: 18%;
+    top: 15%;
     left: 15%;
     transform: translate(-50%, -50%);
     z-index: 1;
@@ -56,8 +56,8 @@ body,html {
 .content img {
     position: relative;
     left: 55%;
-    bottom: 300px;
-    width: 250px; /* Điều chỉnh kích thước theo ý muốn */
+    bottom: 330px;
+    width: 250px;
     height: 250px;
     border-radius: 50%;
     overflow: hidden;
@@ -75,7 +75,7 @@ body,html {
         .content {
             font-size: 36px;
             font-weight: bold;
-            color: royalblue;
+            color: lightsteelblue;
             display: inline-block;
             animation: wave 1s infinite;
         }
@@ -86,4 +86,23 @@ body,html {
     font-size: 40px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+}
+
+.play-button {
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Màu nền */
+    transition: background-color 0.3s;
+    color: white; /* Màu chữ */
+    border: none; /* Không có đường viền */
+    border-radius: 5px; /* Góc bo tròn */
+    position: relative;
+    left: 13%;
+    bottom: 180px;
+}
+
+.play-button:hover {
+    background-color: #45a049;
 }

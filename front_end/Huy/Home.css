@@ -134,18 +134,18 @@
 
 .username {
     position: relative;
-    bottom: 60px;
+    bottom: 100px;
     left: 20%;
 
 
 }
 
-.password {
-    position: relative;
-    bottom: 55px;
-    left: 20.5%;
+/*.password {*/
+/*    position: relative;*/
+/*    bottom: 55px;*/
+/*    left: 20.5%;*/
 
-}
+/*}*/
 
 .login-button {
     padding: 10px 20px;
@@ -157,7 +157,7 @@
     border-radius: 5px; /* Góc bo tròn */
     position: relative;
     left: 44%;
-    bottom: 40px;
+    bottom: 65px;
 }
 
 .login-button:hover {

@@ -1,13 +1,7 @@
-# import sys
 import sys
-sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\QUIZ_PROJECT\\back_end')
+from src.config import dbconfig
 
-# sys.path.insert(1,'G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
-#use 1 instead of 0 as 0 is reserved placed, not recommended to use 0
-
-from config import dbconfig
-# from ...config import dbconfig
-# from ...config import dbconfig
 
 connection = dbconfig.connection
 

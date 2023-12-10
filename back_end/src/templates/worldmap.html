@@ -1,0 +1,59 @@
+{%extends "layout.html"%}
+{% block body %}
+<h1>
+  Quiz World
+</h1>
+<div id="country-list">
+  <p id="log-out"><a href="{{ url_for("logout") }}">Log Out</a></p>
+<table>
+  <h2>Country List</h2>
+  <thead>
+    
+    <tr>
+      
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for country in country_list %}
+    <tr>
+      <td>{{country[0]}}</td>
+      <td>{{country[1]}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+<div id="location-list">
+  <table>
+    <h2>Location List</h2>
+    <thead>
+      
+      <tr>
+        
+        <th>ID</th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for location in location_list %}
+      <tr>
+        <td>{{location[0]}}</td>
+        <td>{{location[1]}}</td>
+        <td>
+          <form action="#" method="post">
+            <input name="location_id" type="hidden" value="{{location[0]}}">
+            <button type="submit">Edit</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  </div>
+
+{% endblock %}

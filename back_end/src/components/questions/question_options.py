@@ -1,6 +1,8 @@
 import sys
-sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend')
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
 from src.config import dbconfig
+# sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\QUIZ_PROJECT\\back_end')
+# from src.config import dbconfig
 
 connection = dbconfig.connection
 
@@ -32,8 +34,17 @@ def get_option_by_option_id(option_id):
     return result
 
 
+def option_is_correct(option):
+    is_correct =  option[0][3]
+    if is_correct == 1:
+        return True
+    else:
+        return False
+    
+
 if __name__ == "__main__":
     options = get_all_options()
     options_by_question = get_options_by_question_id(1)
     option1 = get_option_by_option_id(20)
     print(option1)
+    print(option_is_correct(option1))

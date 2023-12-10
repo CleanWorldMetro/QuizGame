@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block container %}
+
+  {% if correct_counts >= 10 %}
+
+  <p>You win the game. You are very smart</p>
+  <form action="#" method="post">
+    <button type="submit">Play again</button>
+  </form>
+
+  {% elif chances <= 0 %}
+
+  <p>You lose the game. Don't worry. Let start again</p>
+  <form action="#" method="post">
+    <button type="submit">Play again</button>
+  </form>
+
+  {% else %}
+
+  <p>Why you are still here. You can get more points. 
+    <a href="{{ url_for("worldmap") }}">Go back</a></p>
+
+  {% endif %}
+
+
+
+
+{% endblock %}

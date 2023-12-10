@@ -1,13 +1,6 @@
-# import sys
 import sys
-sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend')
-
-# sys.path.insert(1,'G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
-#use 1 instead of 0 as 0 is reserved placed, not recommended to use 0
-
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\QUIZ_PROJECT\\back_end')
 from src.config import dbconfig
-
-
 connection = dbconfig.connection
 
 def get_cities():
@@ -42,7 +35,7 @@ if __name__ == "__main__":
     cities = get_cities()
     city1 = get_city_by_id(1)
     city2 = get_city_by_name("helsinki")
-    print(city2)
+    print(city1)
     # print(cities)
 
 

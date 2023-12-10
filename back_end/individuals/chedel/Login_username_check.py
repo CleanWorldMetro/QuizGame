@@ -1,7 +1,7 @@
 import string
 from random import random
 
-import config
+from src.config import dbconfig
 
 
 # Just the log-in Logic of the game
@@ -54,4 +54,4 @@ class Game:
         sql = f"INSERT INTO quiz_session (id, player_id, question_answers, correct_count, chances, is_open) VALUES " \
               f"('{self.status['id']}', (SELECT id FROM player WHERE name = '{self.status['name']}'), 0, 0, {self.status['chances']}, 1)"
         self.cursor.execute(sql)
-        config.conn.commit()
+        dbconfig.conn.commit()

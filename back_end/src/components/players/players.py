@@ -1,4 +1,6 @@
 import sys
+sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+from src.config import dbconfig
 sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\QUIZ_PROJECT\\back_end')
 from src.config import dbconfig
 
@@ -22,15 +24,12 @@ def is_name_exist(name_data):
 
 
 def get_players():
-    
     sql = "select * from player"
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
     return result
-
 def insert_new_player(name):
-    
     converted_name = convert_name(name)
     sql = "INSERT INTO player (name)"
     final_sql=f"{sql} VALUES ('{converted_name}')"
@@ -38,7 +37,6 @@ def insert_new_player(name):
     cursor.execute(final_sql)
     print("Insert new player successfully")
     return
-
 
 def get_player_by_name(name):
     

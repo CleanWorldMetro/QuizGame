@@ -35,6 +35,7 @@ def get_session_when_player_exist(username):
     return quiz_session
 
 
+
 def get_quiz_session_by_player_name(username):
   username_data = players.get_player_by_name(username)
   quiz_session = None
@@ -47,10 +48,8 @@ def get_quiz_session_by_player_name(username):
   return quiz_session
 
 def do_insert_new_current_quiz_session(quiz_session_by_player,answer_by_player):
-  print(f'quiz_session: {quiz_session_by_player}')
-  print(f'answer by player: {answer_by_player}')
-  session_id =  quiz_session_by_player[0][0]
-  player_id= quiz_session_by_player[0][1]
+  session_id =  quiz_session_by_player[0]
+  player_id= quiz_session_by_player[1]
   question_id  = answer_by_player[0][1]
   question_option_id = answer_by_player[0][0]
   is_correct = answer_by_player[0][3]
@@ -58,40 +57,60 @@ def do_insert_new_current_quiz_session(quiz_session_by_player,answer_by_player):
   return
 
 def quiz_session_when_answer_correct(quiz_session_by_player, answer_by_player):
-
+  
+  # print(f"old: {quiz_session_by_player}")
   do_insert_new_current_quiz_session(quiz_session_by_player,answer_by_player)
-  # session_id =  quiz_session_by_player
-  # player_id=
-  # question_id
-  # question_option_id=
-  # is_correct = 
-  return
+  session_id = quiz_session_by_player[0]
+  new_questions_answered = quiz_session_by_player[2] + 1
+  new_correct_counts = quiz_session_by_player[3] + 1
+  print("Player answer correct")
+  print("Update this player points")
+  
+  quiz_sessions.update_quiz_session_when_right(session_id,new_questions_answered,new_correct_counts)
+  updated_quiz_session = quiz_sessions.get_quiz_session_by_id(session_id)
+  print("new ",updated_quiz_session)
+  return updated_quiz_session
+
 
 def quiz_session_when_answer_wrong(quiz_session_by_player, answer_by_player):
-  do_insert_new_current_quiz_session(quiz_session_by_player,answer_by_player)
-
   
-  return
+  # print(f"old: {quiz_session_by_player}")
+  do_insert_new_current_quiz_session(quiz_session_by_player,answer_by_player)
+  session_id = quiz_session_by_player[0]
+  new_questions_answered = quiz_session_by_player[2] + 1
+  new_chances = quiz_session_by_player[4] - 1
+  print("Player answer wrong")
+  print("Update this player points")
+  
+  quiz_sessions.update_quiz_session_when_wrong(session_id, new_questions_answered, new_chances)
+  updated_quiz_session = quiz_sessions.get_quiz_session_by_id(session_id)
+  print(f"new: {updated_quiz_session} ")
+  return updated_quiz_session
 
 def save_option_by_option_id(option_id, quiz_session_by_player):
+  
   answer_option_data = question_options.get_option_by_option_id(option_id)
-  # question_id = 
   is_correct = question_options.option_is_correct(answer_option_data)
 
   print(f'answer is correct: {is_correct}')
+  
   if is_correct:
-    new_quiz_session = quiz_session_when_answer_correct(quiz_session_by_player,answer_option_data)
+    
+    updated_quiz_session = quiz_session_when_answer_correct(quiz_session_by_player,answer_option_data)
   else:
-    new_quiz_session = quiz_session_when_answer_wrong(quiz_session_by_player,answer_option_data)
-  return
+    updated_quiz_session = quiz_session_when_answer_wrong(quiz_session_by_player,answer_option_data)
+  return updated_quiz_session
+
 
 def game() :
+  
   username = 'hoa'
   quiz_session = get_quiz_session_by_player_name(username)
   # answer_option_id = request.form.get("option_id")
   # print(quiz_session)
-  answer_option_id = 19
-  save_option_by_option_id(answer_option_id,quiz_session)
+  wrong_answer_option_id = 19 # wrong
+  right_answer_option_id = 18 # right
+  save_option_by_option_id(right_answer_option_id,quiz_session)
 
 
 if __name__ == "__main__":

@@ -5,7 +5,7 @@ sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\n
 # sys.path.insert(1,'G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
 #use 1 instead of 0 as 0 is reserved placed, not recommended to use 0
 
-from config import dbconfig
+from src.config import dbconfig
 # from ...config import dbconfig
 # from ...config import dbconfig
 

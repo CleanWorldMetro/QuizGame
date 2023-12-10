@@ -3,10 +3,10 @@
 # def main():
 # # implement login function as a OOP
 
-#  implemet login function
+#  implement login function
 #  user type username
 #
-#  using databse to check that username
+#  using database to check that username
 #  yes: fetch the session with that name
 #  no: create a session with that name
 #
@@ -27,17 +27,15 @@
 # if __name__ == "__main__":
 #     main()
 import sys
-sys.path.append('G:\\Metropolia\\Metropolia\\2023\\Syksy\\SOFTWARE_2\\PROJECT\\new_backend\\src')
+sys.path.append('/')
 from src.config import dbconfig
 connection = dbconfig.connection
-def fetch_user(user):
+def fetch_user():
     sql="select player.name from player"
-    print(sql)
     cursor = connection.cursor()
     cursor.execute(sql)
     result = cursor.fetchall()
-    if cursor.rowcount > 0:
-        for row in result:
-            print(f"the name of airport {row[0]}")
-    return
+    print(result)
+    return result
 
+fetch_user()

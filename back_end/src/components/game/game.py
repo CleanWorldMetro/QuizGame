@@ -34,12 +34,7 @@ def get_session_when_player_exist(username):
     
     return quiz_session
 
-<<<<<<< HEAD
-def game() :
-  username = 'hoa'
-  get_session_when_player_not_exist(username)
-=======
->>>>>>> 605b6f5f25eb2f4a351ca863a6c6a73d9ffbda97
+
 
 def get_quiz_session_by_player_name(username):
   username_data = players.get_player_by_name(username)

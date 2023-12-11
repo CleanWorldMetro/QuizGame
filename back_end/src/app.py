@@ -50,7 +50,7 @@ def home():
   else:
     return redirect(url_for("worldmap"))
   
-@app.route("/login", methods = ["POST","GET"])
+@app.route("/login/", methods = ["POST","GET"])
 def login():
   
   if "quiz_session" in session:
@@ -67,7 +67,7 @@ def login():
     
     
 
-@app.route("/worldmap", methods = ["POST","GET"])
+@app.route("/worldmap/", methods = ["POST","GET"])
 def worldmap():
   quiz_session = session.get("quiz_session")
   # print(quiz_session)
@@ -119,7 +119,7 @@ def location(city_name):
 
     return redirect(url_for("worldmap"))
   
-@app.route("/finish", methods = ["POST","GET"])
+@app.route("/finish/", methods = ["POST","GET"])
 def finish():
   # quiz_session = session['quiz_session']
   quiz_session = session.get("quiz_session")
@@ -138,14 +138,14 @@ def finish():
     new_quiz_session_by_same_player_id = quiz_sessions.get_open_quiz_session_by_player_id(player_id)
     # print(f"this is a new quiz session: {new_quiz_session_by_same_player_id}")
     session['quiz_session'] = new_quiz_session_by_same_player_id[0]
-    return redirect(url_for("worldmap"))
+    return redirect(url_for("home"))
     
 
-@app.route("/about")
+@app.route("/about/")
 def about():
   return render_template("about.html")
 
-@app.route("/logout")
+@app.route("/logout/")
 def logout():
   session.clear()
   return redirect(url_for("login"))  

@@ -286,4 +286,7 @@
     border-radius: 5px; /* Góc bo tròn */
 
 }
+.play-button:hover {
+    background-color: #45a049; /* Màu nền khi hover */
+}
 

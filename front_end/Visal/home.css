@@ -1,4 +1,5 @@
 body,html {
+  font-family: 'Roboto', sans-serif;
   height: 100%;
   margin: 0;
   position: relative;
@@ -18,7 +19,7 @@ body,html {
 
 /* Style for the header */
 .header {
-  background-color: #f0f0f0;
+  background-color: ghostwhite;
   padding: 10px;
 }
 
@@ -49,6 +50,15 @@ nav ul {
 nav ul li {
   margin-right: 20px; /* Adjust margin as needed */
   text-decoration: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #0056b3;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }
 
 /* Style for the logout button */

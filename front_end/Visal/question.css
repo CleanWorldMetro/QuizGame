@@ -1,4 +1,5 @@
 body, html {
+    font-family: 'Roboto', sans-serif;
   height: 100%;
   margin: 0;
   position: relative; /* Needed for absolute positioning of markers */
@@ -28,7 +29,7 @@ body, html {
 
 /* Style for the header */
 .header {
-  background-color: #f0f0f0;
+  background-color: ghostwhite;
   padding: 10px;
 }
 

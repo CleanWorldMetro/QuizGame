@@ -7,30 +7,19 @@
     <link href="{{ url_for('static', filename = 'about.css') }}" rel="stylesheet">
 </head>
 <body class="body">
-    <header class="menu">
-        <div class="logo">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSizV4inC8yMZ4eKt1Gd2LfQ5RseblvFbu24Ev0iSU6a17N8-GTBs9X4gvGKxWhP6vYFuI&usqp=CAU"
-                 alt="environment_logo">
+    <nav class="nav">
+        <ul class="list_option">
+            <li class="item"><a href="{{ url_for("home" )}}" style="text-decoration: none"> 🏠 </a></li>
+            <li class="item"><a href="{{ url_for("worldmap" )}}" style="text-decoration: none"> 🗺️ </a></li>
+            <li class="item"><a href="{{ url_for("worldmap" )}}" style="text-decoration: none"> 💬 </a></li>
+            <li class="item"><a href="{{ url_for("about")}}" style="text-decoration: none"> ☎️ </a></li>
+        </ul>
 
-        </div>
-
-        <div class="quiz">
-            <h1 class="quiz">Environmental Quiz 🌱🌴☘️</h1>
-        </div>
-    </header>
-<nav class="nav">
-    <ul class="list_option">
-        <li class="item"><a href="{{ url_for("home" )}}" style="text-decoration: none"> 🏠 </a></li>
-        <li class="item"><a href="{{ url_for("worldmap" )}}" style="text-decoration: none"> 🗺️ </a></li>
-        <li class="item"><a href="{{ url_for("worldmap" )}}" style="text-decoration: none"> 💬 </a></li>
-        <li class="item"><a href="{{ url_for("about")}}" style="text-decoration: none"> ☎️ </a></li>
-    </ul>
-
-</nav>
-<p class="para-about">
-            Rules 📜 📜 📜
-</p>
-<main class="main">
+    </nav>
+    <p class="para-about">
+                Rules 📜 📜 📜
+    </p>
+    <main class="main">
 <!--    <div class="total_main">-->
 
         <ul class="rules-about" >

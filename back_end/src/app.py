@@ -70,7 +70,7 @@ def login():
 @app.route("/worldmap", methods = ["POST","GET"])
 def worldmap():
   quiz_session = session.get("quiz_session")
-  print(quiz_session)
+  # print(quiz_session)
   if request.method == "GET":
     if not quiz_session:
       return redirect(url_for('login'))   
@@ -97,18 +97,23 @@ def location(city_name):
   # quiz_session = session["quiz_session"]
   quiz_session = session.get("quiz_session")
   if request.method == "GET":
+    player = players.get_player_by_player_id(quiz_session[1])[0]
     city_in_request = cities.get_city_by_name(city_name)
     question = questions.get_random_question_by_location_id(city_in_request[0][0])
     options_of_question = question_options.get_options_by_question_id(question[0][0])
     # print(options_of_question)
     
-    return render_template("question.html",city_in_request=city_in_request,question=question,options_of_question=options_of_question,quiz_session = quiz_session)
+    return render_template("question2.html",city_in_request=city_in_request,question=question,options_of_question=options_of_question,quiz_session = quiz_session, player = player)
   else:
     answer_question_option_id = request.form.get("option_id")
     quiz_session_by_player = session['quiz_session']
 
     updated_quiz_session = game.save_option_by_option_id(answer_question_option_id,quiz_session_by_player)[0]
-    option =
+    option = question_options.get_option_by_option_id(answer_question_option_id)
+    if question_options.option_is_correct(option):
+      flash("You answer correct.")
+    else: 
+      flash("You answer wrong.")
     #update quiz_session
     session["quiz_session"] = updated_quiz_session
 

@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="header">
     <header>
         <img src="photos/logo.png" alt="logo" height="100">
-        <h1>Game Name</h1>
+        <h1>Quiz Game</h1>
         <nav>
             <ul>
                 <!-- <li><a>Home</a></li> -->
@@ -23,6 +26,12 @@
 <div class="welcoming_user">
     <h2> Welcome Guardian!</h2>
 </div>
+<div class="stats-placeholder">
+      <!-- Player's stats fetched from the database -->
+      <p>Player Name: <span id="playerNamePlaceholder">Loading...</span></p>
+      <p>Score: <span id="scorePlaceholder">Loading...</span></p>
+      <!-- Add other stats here -->
+    </div>
 
 <div class="instructions">
     <h3>Game Instructions Here</h3>

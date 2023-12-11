@@ -189,6 +189,7 @@
     z-index: 1;
 
 }
+
 .player_info li {
     color: white;
     list-style: none;
@@ -205,6 +206,7 @@
     background-color: rgba(255, 255, 255, 0.5);
 
 }
+
 .quiz-container {
     width: 100%;
     position: absolute;
@@ -244,11 +246,47 @@
     cursor: pointer;
     transition: background-color 0.1s;
 }
+
 .question_here {
     position: relative;
     bottom: 8px;
 }
+
 /* Hiệu ứng hover khi di chuột vào nút */
 .check-answer:hover {
     background-color: #45a049;
 }
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 9%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    height: auto;
+    display: block;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+
+}
+.play-button {
+    position: relative;
+    left: 9%;
+    bottom: 20px;
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Không có đường viền */
+    border-radius: 5px; /* Góc bo tròn */
+
+}
+.play-button:hover {
+    background-color: #45a049; /* Màu nền khi hover */
+}
+

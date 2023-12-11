@@ -382,3 +382,18 @@ body {
 .finish {
   text-align: center;
 }
+
+.play-button {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #4caf50; /* Màu nền */
+  transition: background-color 0.3s;
+  color: white; /* Màu chữ */
+  border: none; /* Không có đường viền */
+  border-radius: 5px; /* Góc bo tròn */
+  /* position: relative;
+  left: 13%;
+  bottom: 180px; */
+}

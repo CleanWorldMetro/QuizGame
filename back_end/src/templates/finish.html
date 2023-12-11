@@ -4,18 +4,22 @@
   <main class="main">
     <div class="video-container">
         <div class="finish">
+          <!-- <p class="logout-button">
+            <a href="{{ url_for("logout") }}">Log Out</a>
+        
+          </p> -->
           {% if correct_counts >= 10 %}
 
           <h2>You win the game. You are very smart</h2>
           <form action="#" method="post">
-            <button type="submit">Play again</button>
+            <button class="play-button" type="submit">Play again</button>
           </form>
         
           {% elif chances <= 0 %}
         
           <h2>You lose the game. Don't worry. Let start again</h2>
           <form action="#" method="post">
-            <button type="submit">Play again</button>
+            <button class="play-button" type="submit">Play again</button>
           </form>
         
           {% else %}
@@ -24,6 +28,10 @@
             <a href="{{ url_for("worldmap") }}">Go to map</a></h2>
         
           {% endif %}
+          <p class="logout-button">
+            <a href="{{ url_for("logout") }}">Log Out</a>
+        
+          </p>
             <!-- <button class="play-button">Play Again </button> -->
         </div>
         <video autoplay muted loop id="background-video">

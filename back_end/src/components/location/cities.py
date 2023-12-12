@@ -32,10 +32,11 @@ def get_city_by_name(city_name):
 
 
 if __name__ == "__main__":
-    cities = get_cities()
-    city1 = get_city_by_id(1)
-    city2 = get_city_by_name("helsinki")
-    print(city1)
+    citi_name = "Helsinki"
+    # cities = get_cities()
+    # city1 = get_city_by_id(1)
+    city2 = get_city_by_name(citi_name)
+    print(city2)
     # print(cities)
 
 

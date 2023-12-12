@@ -1,13 +1,22 @@
-from flask import Flask, redirect, render_template, request, url_for, session, flash
+import json
+import os
+
+from flask import Flask, redirect, render_template, request, url_for, session, flash, Response
 from src.components.location import cities,countries
 from src.components.questions import questions,question_options
 from src.components.players import players
 from src.components.game import game
 from src.components.quiz_sessions import quiz_sessions, current_quiz_sessions
 
+from flask_cors import CORS
+
+
 from flask_session import Session
 
 app = Flask( __name__)
+
+cors =CORS (app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 app.config["SESSION_PERMANENT"] = False
@@ -85,11 +94,13 @@ def worldmap():
     if correct_points == 10 or chances == 0:
       return redirect(url_for("finish"))
     # print(country_list.size)
-    return render_template("worldmap.html", country_list = country_list, location_list = location_list, quiz_session=quiz_session)
+    return render_template("worldmap1.html", country_list = country_list, location_list = location_list, quiz_session=quiz_session)
   else:
-    location_id = request.form.get("location_id")
-    location_in_request = cities.get_city_by_id(location_id)
-    # print(location_in_request)
+    # location_id	"Helsinki"
+    location_name = request.form.get("location_name")
+    # location_in_request = cities.get_city_by_id(location_id)
+    location_in_request = cities.get_city_by_name(location_name)
+    # flash(f"You have chosen {location_name}")
     return redirect(url_for("location",city_name = location_in_request[0][1].lower()))
 
 @app.route("/location/<city_name>", methods = ["POST","GET"])
@@ -149,6 +160,22 @@ def about():
 def logout():
   session.clear()
   return redirect(url_for("login"))  
+
+@app.route("/worldmap/locations/")
+def locations():
+    data = game.all_locations_json()
+
+    if data == []:
+        response = {
+            "message": "No locations found"
+        }
+        json_response = json.dumps(response)
+        http_response = Response(response=json_response,status=404,mimetype="application/json")
+    else:
+        response = data
+        json_response = json.dumps(response)
+        http_response = Response(response=json_response,status=200,mimetype="application/json")
+    return http_response
 
 
 

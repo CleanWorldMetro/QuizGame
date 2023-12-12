@@ -6,6 +6,7 @@ from src.components.location import cities,countries
 from src.components.questions import questions,question_options
 from src.components.players import players
 from src.components.quiz_sessions import quiz_sessions, current_quiz_sessions
+from src.components.external_api import weather
 
 #when such username not exist, add that username to player table and add a new quiz_session with that new username to quiz_session table
 def get_session_when_player_not_exist(username):
@@ -101,16 +102,43 @@ def save_option_by_option_id(option_id, quiz_session_by_player):
     updated_quiz_session = quiz_session_when_answer_wrong(quiz_session_by_player,answer_option_data)
   return updated_quiz_session
 
+# def get_all_location():
+#   locations = cities.get_cities()
+#   return locations
 
+def get_all_locations_json(location_list):
+  
+  json_response = []
+  for location_name in location_list:
+    location_reponse = weather.get_json_response(location_name)
+    # print(location_reponse)
+    json_response.append(location_reponse)
+    # json_response = json_response + location_reponse
+  return json_response  
+
+def get_location_name_list (locations):
+  return list(map(lambda obj: obj[1],locations))
+
+def all_locations_json():
+  locations = cities.get_cities()
+  location_name_list = get_location_name_list(locations)
+  location_json_list = get_all_locations_json(location_name_list)
+  return location_json_list
+    
 def game() :
   
-  username = 'hoa'
-  quiz_session = get_quiz_session_by_player_name(username)
-  # answer_option_id = request.form.get("option_id")
-  # print(quiz_session)
-  wrong_answer_option_id = 19 # wrong
-  right_answer_option_id = 18 # right
-  save_option_by_option_id(right_answer_option_id,quiz_session)
+  # username = 'hoa'
+  # quiz_session = get_quiz_session_by_player_name(username)
+  # # answer_option_id = request.form.get("option_id")
+  # # print(quiz_session)
+  # wrong_answer_option_id = 19 # wrong
+  # right_answer_option_id = 18 # right
+  # save_option_by_option_id(right_answer_option_id,quiz_session)
+  # locations = get_all_location()
+  # location_list = get_location_name_list(locations)
+  json_response = all_locations_json()
+  # print(location_list)
+  print(json_response)
 
 
 if __name__ == "__main__":

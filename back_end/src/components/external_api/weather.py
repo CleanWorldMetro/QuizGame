@@ -26,7 +26,7 @@ private_key = dbconfig.private_key
 # geo_request =f"http://api.openweathermap.org/geo/1.0/direct?q={query_string}&limit=5&appid={private_key}"
 # print(geo_request)
 
-example_request = "http://api.openweathermap.org/geo/1.0/direct?limit=5&appid=28e489100830be62a52cd6f528c12b6c&q=London"
+# example_request = "http://api.openweathermap.org/geo/1.0/direct?limit=5&appid=28e489100830be62a52cd6f528c12b6c&q=London"
 #weather request
 # weather_request = f"https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}&appid={private_key}"
 # # https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}&appid={API key}
@@ -109,6 +109,20 @@ def convert_str (string_list) :
 
     return result_str
 
+def get_json_response(city_name):
+    json_response = {}
+    response = get_forecast_at_location(city_name)
+    if not response:
+        response = ""
+        # json_response = {city_name: ""}
+        # return json_response
+    
+    json_response = {
+        "name" : city_name,
+        "value" :response
+    }
+    return json_response
+
 
 def get_location_name():
     return input("Type the Location you want to have forecast: ")
@@ -118,11 +132,12 @@ def main():
     # result_str_list = get_forecast_at_location(location_name)
     response = get_forecast_at_location(location_name)
     # return object, either {} or with content
-    if response == {} :
+    json_response = get_json_response(location_name)
+    if json_response == {} :
         print("There is no city with such name!!")
         return
     else:
-        print(response)
+        print(json_response)
         # print(final_str)
 
 # location_lon, location_lat = get_location(query_string)

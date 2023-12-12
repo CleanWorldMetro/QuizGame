@@ -83,6 +83,7 @@ def worldmap():
   if request.method == "GET":
     if not quiz_session:
       return redirect(url_for('login'))   
+    player = players.get_player_by_player_id(quiz_session[1])[0]
     country_list = countries.get_countries()
     location_list = cities.get_cities()
     
@@ -94,7 +95,7 @@ def worldmap():
     if correct_points == 10 or chances == 0:
       return redirect(url_for("finish"))
     # print(country_list.size)
-    return render_template("worldmap1.html", country_list = country_list, location_list = location_list, quiz_session=quiz_session)
+    return render_template("worldmap1.html", country_list = country_list, location_list = location_list, quiz_session=quiz_session, player = player)
   else:
     # location_id	"Helsinki"
     location_name = request.form.get("location_name")

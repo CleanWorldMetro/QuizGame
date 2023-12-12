@@ -2,18 +2,24 @@
 
 {% block index %}
 <main class="container-map">
-  <div class="player-info-container opacity">
-      <p>Status:</p>
-      <p>name: ???</p>
-      <p>poinst: ???</p>
+  <div class="player-info-container ">
+    <div class="player-info-map card">
+      <h3>Status</h3>
+      <p>Name: {{ player[1] }} </p>
+      <p>Points: {{ quiz_session[3] }} </p>
+      <p>Chances: {{ quiz_session[4] }}/3</p>
+      
 
-
+    </div>
+    <div class="location-info-map card">
+      <h3>Location</h3>
+    </div>
   </div>
   <div id="map">
-    <!-- <img src="static/map3.jpg" alt="world map" class="img-map"> -->
+      <!-- <img src="static/map3.jpg" alt="world map" class="img-map"> -->
   </div>
     <!-- <div class="finish-map">
       You have won!!
     </div> -->
-</main>
+  </main>
 {% endblock %}

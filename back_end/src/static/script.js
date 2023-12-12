@@ -20,6 +20,52 @@ const getDataFromAPI = async (url) => {
   const jsonData = await response.json();
   return jsonData;
 };
+
+// const getDataForOneLocation = async (url, location) => {
+//   const response = await fetch(`${url}`); //fetch response from request
+//   if (!response.ok) throw new Error("Invalid server input!");
+//   const jsonData = await response.json();
+//   return jsonData;
+// };
+
+// {
+//   "name": "Dammam",
+//   "value": {
+//     "location": "Dammam",
+//     "latitude": 26.4367824,
+//     "longitude": 50.1039991,
+//     "weather": "Clouds",
+//     "weather_description": "broken clouds",
+//     "temperature": 16.06,
+//     "feels_like": 16.18
+//   }
+// }
+const updateLocationStatus = (location) => {
+  const locationInfo = document.querySelector(".location-info-map");
+  locationInfo.innerHTML = "";
+  const h3 = document.createElement("h3");
+  h3.innerText = "Location";
+  const ul = document.createElement("ul");
+  ul.classList = "location-status";
+  const content = `
+  <li>Location: ${location.name}</li>
+  <li>Weather: ${location.value.weather}</li>
+  <li>${location.value.weather_description}</li>
+  <li>Temperature: ${location.value.temperature}</li>
+  <li>Feel like: ${location.value.feels_like}</li>`;
+  ul.innerHTML = content;
+  locationInfo.appendChild(h3);
+  locationInfo.appendChild(ul);
+  return;
+};
+
+// const handleClick = (e, location) => {
+//   // e.preventDefault();
+//   console.log("clicking");
+//   updateLocationStatus(location);
+//   return;
+// };
+
 let cityList = [];
 
 const updateLocalStorage = async (url) => {
@@ -31,6 +77,13 @@ const updateLocalStorage = async (url) => {
   console.log(cityList);
   return;
 };
+
+// const updateLocationStatus = (location) {
+//   // const locationInfo = document.querySelector(".location-info")
+
+//   return;
+
+// }
 
 const settingUp = async () => {
   try {
@@ -53,18 +106,6 @@ const settingUp = async () => {
     // }
     // const data = await getDataFromAPI(URL);
     // console.log(data);
-    // {
-    //   "name": "Dammam",
-    //   "value": {
-    //     "location": "Dammam",
-    //     "latitude": 26.4367824,
-    //     "longitude": 50.1039991,
-    //     "weather": "Clouds",
-    //     "weather_description": "broken clouds",
-    //     "temperature": 16.06,
-    //     "feels_like": 16.18
-    //   }
-    // }
 
     //update local storage every minute with new data from API
     // setInterval(() => updateLocalStorage(URL), MINUTE);
@@ -78,9 +119,12 @@ const settingUp = async () => {
       // marker.bindPopup(`<b>${location.name}</b>`).openPopup();
       const popUpContent = document.createElement("div");
       popUpContent.classList = "popup-container";
+      const h2 = document.createElement("h2");
       const form = document.createElement("form");
       const input = document.createElement("input");
       const button = document.createElement("button");
+
+      h2.innerHTML = location.name;
       form.action = "#";
       form.method = "post";
       input.name = "location_name";
@@ -91,8 +135,14 @@ const settingUp = async () => {
 
       form.appendChild(input);
       form.appendChild(button);
+      popUpContent.appendChild(h2);
       popUpContent.appendChild(form);
       marker.bindPopup(popUpContent).openPopup();
+      marker.on("click", (e) => {
+        updateLocationStatus(location);
+      });
+
+      // marker.on("click", handleClick(location));
     }
     // console.log(`lon: ${location.value.longitute}`);
     return;

@@ -36,7 +36,7 @@ def index():
   else:
     correct_counts = quiz_session[3]
     chances = quiz_session[4]
-    if correct_counts >= 6 or chances <= 0:
+    if correct_counts >= 4 or chances <= 0:
       return redirect(url_for("finish"))
     return render_template("index.html", quiz_session = quiz_session)
   
@@ -95,7 +95,7 @@ def worldmap():
     correct_points = quiz_session[3]
     chances = quiz_session[4]
     #when victory or game_over
-    if correct_points == 6 or chances == 0:
+    if correct_points == 4 or chances == 0:
       return redirect(url_for("finish"))
     # print(country_list.size)
     return render_template("worldmap1.html", country_list = country_list, location_list = location_list, quiz_session=quiz_session, player = player)

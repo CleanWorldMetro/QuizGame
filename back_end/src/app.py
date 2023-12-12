@@ -46,8 +46,11 @@ def home():
   
   if not quiz_session:
     return redirect(url_for("login"))
+  print(quiz_session)
   if request.method == "GET":
     player = players.get_player_by_player_id(quiz_session[1])[0]
+    # if not player:
+    # return redirect(url_for("login"))
     # player (1, 'trung')
     # quiz_session (1, 1, 0, 0, 3, 1)
     correct_rate = 0

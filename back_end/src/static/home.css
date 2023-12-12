@@ -318,6 +318,7 @@ body {
 }
 
 .card {
+  margin-top: 1rem;
   border: 5px solid black;
   border-radius: 5px;
   width: 80%;
@@ -374,7 +375,9 @@ body {
 .popup-container {
   text-align: center;
 }
-.city-icon {
+
+.log-out-container {
+  margin-top: 0.5rem;
 }
 
 .player_info {

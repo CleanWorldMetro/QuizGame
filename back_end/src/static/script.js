@@ -4,6 +4,7 @@ const URL = "http://127.0.0.1:5000/worldmap/locations/";
 
 const METRO = [60.224102435937006, 24.760262698335563];
 const MINUTE = 60 * 1000;
+const HOUR = 60 * MINUTE;
 // 60.224102435937006, 24.760262698335563
 
 const map = L.map("map", { tap: false });
@@ -44,7 +45,7 @@ const updateLocationStatus = (location) => {
   const locationInfo = document.querySelector(".location-info-map");
   locationInfo.innerHTML = "";
   const h3 = document.createElement("h3");
-  h3.innerText = "Location";
+  h3.innerText = "Weather";
   const ul = document.createElement("ul");
   ul.classList = "location-status";
   const content = `
@@ -73,7 +74,7 @@ const updateLocalStorage = async (url) => {
   const convertedJsonData = JSON.stringify(fetchedData);
   localStorage.setItem("cityList", convertedJsonData);
   cityList = JSON.parse(localStorage.getItem("cityList"));
-  console.log("storage updated");
+  console.log("storage updated after 1 hour");
   console.log(cityList);
   return;
 };
@@ -107,8 +108,8 @@ const settingUp = async () => {
     // const data = await getDataFromAPI(URL);
     // console.log(data);
 
-    //update local storage every minute with new data from API
-    // setInterval(() => updateLocalStorage(URL), MINUTE);
+    //update local storage every hour with new data from API
+    setInterval(() => updateLocalStorage(URL), HOUR);
 
     for (let location of cityList) {
       let latitude = location.value.latitude;

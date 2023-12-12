@@ -103,10 +103,7 @@ const settingUp = async () => {
     }
     console.log("updated storage");
     console.log(cityList);
-    // return;
-    // }
-    // const data = await getDataFromAPI(URL);
-    // console.log(data);
+
 
     //update local storage every hour with new data from API
     setInterval(() => updateLocalStorage(URL), HOUR);

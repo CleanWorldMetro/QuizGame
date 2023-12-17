@@ -3,18 +3,30 @@
 {% block index %}
 <main class="container-map">
   <div class="player-info-container ">
-    <div class="player-info-map card">
-      <h3>Status</h3>
-      <p>Name: {{ player[1] }} </p>
-      <p>Points: {{ quiz_session[3] }} </p>
-      <p>Chances: {{ quiz_session[4] }}/3</p>
-      
+    <div class="player-info-map  ">
+      <div class="background-info">
+        <img src="/static/photo/scroll-2.jpg" alt="scroll">
+      </div>
+      <div class="player-inf text-center">
+        <h3>Player</h3>
+        <ul class="status">
+          <li>Name: {{ player[1] }}</li>
+          <li>Points: {{ quiz_session[3] }}</li>
+          <li>Chances: {{ quiz_session[4] }}/3</li>
+        </ul>
 
+
+      </div>
     </div>
-    <div class="location-info-map card">
-      <h3>Weather</h3>
+    <div class="location-info-map  ">
+      <div class="background-info"> 
+         <img src="/static/photo/scroll-2.jpg" alt="scroll">
+      </div>
+      <div class="weather-info text-center">
+        <h3>Weather</h3>
+      </div>
     </div>
-    <div class="log-out-container">
+    <div class="log-out-container text-center">
       <p class="logout-button">
         <a href="{{ url_for("logout") }}">Log Out</a>
       </p>

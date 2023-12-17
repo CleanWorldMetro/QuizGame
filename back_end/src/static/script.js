@@ -42,12 +42,13 @@ const getDataFromAPI = async (url) => {
 //   }
 // }
 const updateLocationStatus = (location) => {
-  const locationInfo = document.querySelector(".location-info-map");
-  locationInfo.innerHTML = "";
+  const weatherInfo = document.querySelector(".weather-info");
+  // const background = document.querySelector("background-info");
+  weatherInfo.innerHTML = "";
   const h3 = document.createElement("h3");
   h3.innerText = "Weather";
   const ul = document.createElement("ul");
-  ul.classList = "location-status";
+  ul.classList = "status";
   const content = `
   <li>Location: ${location.name}</li>
   <li>Weather: ${location.value.weather}</li>
@@ -55,8 +56,9 @@ const updateLocationStatus = (location) => {
   <li>Temperature: ${location.value.temperature}</li>
   <li>Feel like: ${location.value.feels_like}</li>`;
   ul.innerHTML = content;
-  locationInfo.appendChild(h3);
-  locationInfo.appendChild(ul);
+
+  weatherInfo.appendChild(h3);
+  weatherInfo.appendChild(ul);
   return;
 };
 
@@ -103,7 +105,6 @@ const settingUp = async () => {
     }
     console.log("updated storage");
     console.log(cityList);
-
 
     //update local storage every hour with new data from API
     setInterval(() => updateLocalStorage(URL), HOUR);

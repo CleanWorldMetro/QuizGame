@@ -21,5 +21,5 @@ How to deploy:
   - `cd \back_end\src`
 
 - deploy flask server
-  - flask run --debug
+  - `flask run --debug`
 

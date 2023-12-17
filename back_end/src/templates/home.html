@@ -8,18 +8,24 @@
                 type="video/mp4">
   
     </video>
-    <p class="logout-button">
-      <a href="{{ url_for("logout") }}">Log Out</a>
-  
-    </p>
+    <div class="log-out-container-home">
+      <p class="logout-button">
+        <a href="{{ url_for("logout") }}">Log Out</a>
+    
+      </p>
+
+    </div>
     <div class="content-home">
-      <ul class="list_option-home">
-          <li class="item">Username: {{ player[1] }}</li>
-          <li class="item">Point: {{ quiz_session[3] }}</li>
-          <li class="item">Answered question: {{ quiz_session[2] }} </li>
-          <li class="item">Correct rate: {{ correct_rate }}% </li>
-          <li class="item">Chances: {{ quiz_session[4] }}/3 </li>
-      </ul>
+      <div class="list_option-container">
+        
+        <ul class="list_option-home">
+            <li class="item">Username: {{ player[1] }}</li>
+            <li class="item">Point: {{ quiz_session[3] }}</li>
+            <li class="item">Answered question: {{ quiz_session[2] }} </li>
+            <li class="item">Correct rate: {{ correct_rate }}% </li>
+            <li class="item">Chances: {{ quiz_session[4] }}/3 </li>
+        </ul>
+      </div>
       <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxL3APRUSYSew4EaM1x83bovZK_MFKdf2aBQ&usqp=CAU" alt="img_cute"> -->
       <img src="/static/photo/globe-teacher.jpg" alt="globe teacher">
       <form action="#" method="post">

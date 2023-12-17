@@ -3,11 +3,22 @@
 <main class="total_background_question">
   <div class="video-container">
       <div class="player_info">
-          <ul class="ul_info">
-              <li class="info">Player name: {{ player[1] }}</li>
-              <li class="info">Score: {{ quiz_session[3] }}</li>
-              <li class="info">Chances: {{ quiz_session[4] }}/3</li>
-          </ul>
+        <div class="player_info-container">
+
+            <ul class="ul_info">
+                <li class="info">Player name: {{ player[1] }}</li>
+                <li class="info">Score: {{ quiz_session[3] }}</li>
+                <li class="info">Chances: {{ quiz_session[4] }}/3</li>
+            </ul>
+        </div>
+        <div class="log-out-container-home">
+            <p class="logout-button">
+              <a href="{{ url_for("logout") }}">Log Out</a>
+          
+            </p>
+      
+          </div>
+        
       </div>
       <video autoplay muted loop id="background-video">
           <source src="https://cdn.pixabay.com/vimeo/443041055/tuyet-45338.mp4?width=640&hash=2d698453e2266e47f97ac30ec367cb13118e7e4f"

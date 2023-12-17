@@ -415,9 +415,16 @@ body {
   text-align: center;
 }
 
-.log-out-container {
-  margin-top: 0.5rem;
+.log-out-container-home {
+  position: absolute;
+  top: 15rem;
+  left: 3rem;
 }
+
+/* .log-out-container {
+  position: abosolut
+  margin-top: 0.5rem;
+} */
 
 .player_info {
   /* position: absolute; */

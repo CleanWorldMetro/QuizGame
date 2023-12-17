@@ -11,4 +11,15 @@ These are the stacks we use:
 FrontEnd: HTML, CSS, JAVASCRIPT
 Backend: MySQL, PYTHON, FLASK
 
+How to deploy:
+
+- Activate the virtual environment (venv)
+- Install all required package:
+  `pip install -r requirements.txt`
+
+- cd to `src` folder
+  - `cd \back_end\src`
+
+- deploy flask server
+  - flask run --debug
 
